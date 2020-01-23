@@ -1,4 +1,4 @@
-package com.textgui;
+package com.textgui.menu;
 
 public class MenuItem {
 	private String name;
