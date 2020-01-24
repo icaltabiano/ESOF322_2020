@@ -1,4 +1,9 @@
-package com.textgui.menu;
+package com.ui.menu;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 
 /**
  * 
@@ -32,5 +37,21 @@ public class MenuItem {
 	 */
 	public String getName() {
 		return this.name;
+	}
+	
+	/**
+	 * 
+	 * Converts this menu item to a button that can be put onto a JFrame
+	 * @return A JButton object with the menu item functionality
+	 */
+	public JButton toButton() {
+		MenuItem item = this;
+		JButton button = new JButton(this.name);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				item.exec.execute();
+			}
+		});
+		return button;
 	}
 }

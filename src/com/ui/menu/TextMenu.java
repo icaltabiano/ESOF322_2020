@@ -1,4 +1,4 @@
-package com.textgui.menu;
+package com.ui.menu;
 
 import com.ian.util.Console;
 import com.ian.util.Util;
@@ -6,7 +6,7 @@ import com.ian.util.Util;
 /**
  * @author ian.caltabiano
  */
-public class Menu {
+public class TextMenu {
 
 	private MenuItem[] menuItems;
 	private boolean renderBorder = false;
@@ -16,7 +16,7 @@ public class Menu {
 	 * Creates a Menu object
 	 * @param items An array of arbitrary length of menu items in the menu
 	 */
-	public Menu(MenuItem...items) {
+	public TextMenu(MenuItem...items) {
 		menuItems = items;
 	}
 
@@ -25,7 +25,7 @@ public class Menu {
 	 * @param s The new title of the menu
 	 * @return The new menu object to support a factory builder pattern
 	 */
-	public Menu setTitle(String s) {
+	public TextMenu setTitle(String s) {
 		this.title = s;
 		return this;
 	}
@@ -34,7 +34,7 @@ public class Menu {
 	 * Calling this function will make the menu render with a border
 	 * @return The new menu object to support a factory builder pattern
 	 */
-	public Menu renderBorder() {
+	public TextMenu renderBorder() {
 		this.renderBorder = true;
 		return this;
 	}
