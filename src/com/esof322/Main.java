@@ -12,7 +12,7 @@ public class Main {
 		Menu menu = new Menu(
 					new MenuItem("Say Hello", () -> Console.print("Hello!")),
 					new MenuItem("Say Goodbye", () -> Console.print("Goodbye!")),
-					new MenuItem("Do a Thing", () -> Popup.alert("Here's an alert!", "Alert"))
+					new MenuItem("Do a Thing", () -> Popup.alert(Popup.prompt("What do you want me to say?", "Question"), "Alert"))
 				)
 				.setTitle("Test Menu")
 				.renderBorder();
