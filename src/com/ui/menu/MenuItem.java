@@ -1,36 +1,25 @@
 package com.ui.menu;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
+import javax.swing.JComponent;
 
 /**
  * 
  * @author ian.caltabiano
  *
  */
-public class MenuItem {
-	private String name;
-	private MenuExec exec;
+public abstract class MenuItem {
+	protected String name;
+	
 	
 	/**
 	 * Creates a new MenuItem for the purposes of a Menu
 	 * @param s The text entry for the menu item
 	 * @param e The function to execute when the MenuItem is selected (styled as ()->func();)
 	 */
-	public MenuItem(String s, MenuExec e) {
+	public MenuItem(String s) {
 		this.name = s;
-		this.exec = e;
 	}
 	
-	/**
-	 * Executes the menu item
-	 */
-	public void exec() {
-		this.exec.execute();
-	}
-
 	/**
 	 * Retrieves the string of the menu item
 	 * @return
@@ -42,16 +31,18 @@ public class MenuItem {
 	/**
 	 * 
 	 * Converts this menu item to a button that can be put onto a JFrame
-	 * @return A JButton object with the menu item functionality
+	 * @return A JComponent object with the menu item functionality
 	 */
-	public JButton toButton() {
-		MenuItem item = this;
-		JButton button = new JButton(this.name);
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				item.exec.execute();
-			}
-		});
-		return button;
-	}
+	public abstract JComponent toComponent();
+
+	/**
+	 * What does this item look like in a text-only display?
+	 * @return The console text appearance
+	 */
+	public abstract String getTextDisplay();
+	
+	/**
+	 * Called when the object is selected in a text menu
+	 */
+	public abstract void exec();
 }

@@ -96,7 +96,6 @@ public class Console {
 		Scanner scan = new Scanner(System.in);
 		print(query);
 		int i = scan.nextInt();
-		scan.close();
 		return i;
 	}
 	
@@ -109,7 +108,6 @@ public class Console {
 		Scanner scan = new Scanner(System.in);
 		print(query);
 		String s = scan.next();
-		scan.close();
 		return s;
 	}
 }
